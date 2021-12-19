@@ -114,6 +114,8 @@ public class GameMaster {
         Move move = new Move(isWhite, startPos, endPos, moveType);
         history.addMove(move);
 
+        //update current player color
+        currentPlayer = currentPlayer.switchPlayer();
         return true;
     }
 
@@ -122,9 +124,6 @@ public class GameMaster {
         board.getCell(endPos.getX(), endPos.getY()).setPiece(startPos.getPiece());
         //we set the start piece from the initial tile position to Null piece
         board.getCell(startPos.getX(), startPos.getY()).setPiece(new Null(false));
-
-        //update current player color
-        currentPlayer = currentPlayer.switchPlayer();
     }
 
     public boolean undoMove(){

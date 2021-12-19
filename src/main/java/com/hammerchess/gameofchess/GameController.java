@@ -91,7 +91,7 @@ public class GameController {
             updateWhiteGraveyard();
             updateBlackGraveyard();
             updateInfoLabel("Move has been redone!", Color.BLUE);
-            //if move undone, player turn flips
+            //if move redone, player turn flips
             currentPlayer = game.flipCurrentPlayer();
             updateCurrentPlayerLabel();
         }
