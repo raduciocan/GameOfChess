@@ -139,7 +139,7 @@ public class GameMaster {
             if(moveToUndo.isWhite())
                 board.popBlack();
             else
-                board.popBlack();
+                board.popWhite();
 
         return true;
     }

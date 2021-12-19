@@ -237,9 +237,6 @@ public class GameController {
             updateCurrentPlayerLabel();
             updateUndoRedoButtons();
 
-            //if move was committed, reset the history redo list since the current game state is no longer matching old next moves
-            history.clearRedo();
-
             //if last move a piece has been killed, we add it to its respective VBox
             if(game.lastKilled() == 1) {
                 updateInfoLabel("Valid move executed : White piece captured!", Color.LIGHTSEAGREEN);
@@ -249,6 +246,9 @@ public class GameController {
                 updateInfoLabel("Valid move executed : Black piece captured!", Color.LIGHTSEAGREEN);
                 updateBlackGraveyard();
             }
+
+            //if move was committed, reset the history redo list since the current game state is no longer matching old next moves
+            history.clearRedo();
         }
         else {
             updateInfoLabel("That move is illegal!", Color.CRIMSON);

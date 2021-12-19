@@ -38,7 +38,7 @@ public class Move {
         return white;
     }
     public boolean hasKilled(){
-        return !(pieceKilled instanceof Null);
+        return type == MoveType.CAPTURE;
     }
     public boolean isCastlingMove() {
         return this.type == MoveType.CASTLING_BIG || this.type == MoveType.CASTLING_SMALL;
@@ -49,8 +49,5 @@ public class Move {
     }
     public MoveType getMoveType() {
         return type;
-    }
-    public void setMoveType(MoveType type){
-        this.type = type;
     }
 }
