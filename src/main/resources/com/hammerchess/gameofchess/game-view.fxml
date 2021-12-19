@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="560.0" scaleShape="false" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hammerchess.gameofchess.GameController">
+   <children>
+       <Button fx:id="undoButton" defaultButton="true" disable="true" layoutX="87.0" layoutY="538.0" onAction="#onUndoButtonClick" prefHeight="38.0" prefWidth="50.0" text="Undo">
+         <font>
+            <Font name="Dubai Light" size="12.0" />
+         </font></Button>
+      <Button fx:id="redoButton" defaultButton="true" disable="true" layoutX="147.0" layoutY="538.0" mnemonicParsing="false" onAction="#onRedoButtonClick" prefHeight="38.0" prefWidth="50.0" text="Redo">
+         <font>
+            <Font name="Dubai Light" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="forfeit" cancelButton="true" layoutX="405.0" layoutY="538.0" mnemonicParsing="false" onAction="#onGiveUpButtonClick" prefHeight="38.0" prefWidth="70.0" text="GIVE UP" textFill="RED">
+         <font>
+            <Font name="Dubai Medium" size="12.0" />
+         </font>
+      </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="100.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" width="560.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.7921568751335144" green="0.8980392217636108" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.007633587786259542">
+                     <color>
+                        <Color red="0.7921568751335144" green="0.8980392217636108" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.5833333134651184" green="0.7986111044883728" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <TilePane fx:id="boardView" hgap="1.0" layoutX="75.0" layoutY="105.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="410.0" prefTileHeight="50.0" prefTileWidth="50.0" prefWidth="410.0" tileAlignment="TOP_LEFT" vgap="1.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="3.0" prefHeight="48.0" prefWidth="169.0" text="Current Turn" textAlignment="CENTER" textFill="#3c91bd">
+         <font>
+            <Font name="Dubai Regular" size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="currentPlayerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="216.0" layoutY="34.0" prefHeight="38.0" prefWidth="128.0" text="WHITE" textFill="WHITE">
+         <font>
+            <Font name="Dubai Bold" size="21.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cae5ff" height="500.0" layoutX="490.0" layoutY="101.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="70.0" />
+      <Separator fx:id="separatorWhite" layoutX="75.0" layoutY="54.0" prefHeight="3.0" prefWidth="155.0" style="-fx-background-color: CYAN;" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cae5ff" height="500.0" layoutY="101.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="70.0" />
+      <Separator fx:id="separatorBlack" layoutX="331.0" layoutY="54.0" prefHeight="3.0" prefWidth="155.0" />
+      <Label alignment="CENTER" layoutX="16.0" layoutY="103.0" prefHeight="13.0" prefWidth="43.0" text="Lost" textFill="WHITE">
+         <font>
+            <Font name="Dubai Regular" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="13.0" layoutY="115.0" prefHeight="13.0" prefWidth="43.0" text="Pieces" textFill="#02dddd">
+         <font>
+            <Font name="Dubai Regular" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="504.0" layoutY="101.0" prefHeight="13.0" prefWidth="43.0" text="Lost">
+         <font>
+            <Font name="Dubai Regular" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="501.0" layoutY="113.0" prefHeight="13.0" prefWidth="43.0" text="Pieces" textFill="DARKORANGE">
+         <font>
+            <Font name="Dubai Regular" size="16.0" />
+         </font>
+      </Label>
+      <ProgressIndicator fx:id="indicatorWhite" layoutX="16.0" layoutY="36.0" prefHeight="38.0" prefWidth="43.0" />
+      <ProgressIndicator fx:id="indicatorBlack" layoutX="501.0" layoutY="34.0" prefHeight="38.0" prefWidth="43.0" visible="false" />
+      <VBox fx:id="whiteGraveyard" alignment="TOP_CENTER" layoutX="5.0" layoutY="147.0" prefHeight="360.0" prefWidth="60.0" />
+      <VBox fx:id="blackGraveyard" alignment="TOP_CENTER" layoutX="495.0" layoutY="145.0" prefHeight="360.0" prefWidth="60.0" />
+      <Label fx:id="infoLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" layoutY="68.0" prefHeight="24.0" prefWidth="420.0" text="Click a piece to select it" textAlignment="CENTER" textFill="LIGHTSEAGREEN">
+         <font>
+            <Font name="Dubai Regular" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
