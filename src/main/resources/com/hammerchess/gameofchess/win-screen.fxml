@@ -30,7 +30,7 @@
             <Font size="37.0" />
          </font>
          <tooltip>
-            <Tooltip consumeAutoHidingEvents="false" style="-fx-show-delay: 0ms;" text="Drag me around!" />
+            <Tooltip fx:id="dragTip" autoFix="false" consumeAutoHidingEvents="false" contentDisplay="CENTER" hideOnEscape="false" text="Drag me around!" />
          </tooltip>
       </Label>
    </children>

@@ -6,9 +6,11 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 public class WinScreenController {
     private GameState state;
@@ -21,10 +23,11 @@ public class WinScreenController {
     @FXML
     private Label infoLabel;
     @FXML
+    private Tooltip dragTip;
+    @FXML
     private Button exitButton;
     @FXML
     private Button restartButton;
-
     @FXML
     protected void exit(){
         Platform.exit();
@@ -38,6 +41,7 @@ public class WinScreenController {
     }
 
     private void setDragControls() {
+        dragTip.setShowDelay(Duration.ZERO);
         winContainer.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
