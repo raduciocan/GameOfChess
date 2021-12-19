@@ -16,28 +16,26 @@ public class King extends Piece {
     public void setCastling(boolean castlingDone) {
         this.castlingable = castlingDone;
     }
-    public boolean isCastlingDone() {
+    public boolean isCastlingPossible() {
         return castlingable;
     }
 
     public boolean canSmallCast(ChessBoard board, ChessBoardCell fromPos) {
         //refactoring needed
         if(castlingable && fromPos.getX() == 4 && (fromPos.getY() == 0 || fromPos.getY() == 7))
-            if(board.getCell(5, fromPos.getY()).getPiece() instanceof Null && board.getCell(6, fromPos.getY()).getPiece() instanceof Null && board.getCell(7, fromPos.getY()).getPiece() instanceof Rook)
-                return true;
+            return board.getCell(5, fromPos.getY()).getPiece() instanceof Null && board.getCell(6, fromPos.getY()).getPiece() instanceof Null && board.getCell(7, fromPos.getY()).getPiece() instanceof Rook;
         return false;
     }
     public boolean canBigCast(ChessBoard board, ChessBoardCell fromPos) {
         //refactoring needed
         if(castlingable && fromPos.getX() == 4 && (fromPos.getY() == 0 || fromPos.getY() == 7))
-            if(board.getCell(3, fromPos.getY()).getPiece() instanceof Null && board.getCell(2, fromPos.getY()).getPiece() instanceof Null && board.getCell(1, fromPos.getY()).getPiece() instanceof Null && board.getCell(0, fromPos.getY()).getPiece() instanceof Rook)
-                return true;
+            return board.getCell(3, fromPos.getY()).getPiece() instanceof Null && board.getCell(2, fromPos.getY()).getPiece() instanceof Null && board.getCell(1, fromPos.getY()).getPiece() instanceof Null && board.getCell(0, fromPos.getY()).getPiece() instanceof Rook;
         return false;
     }
 
     @Override
     public List<ChessBoardCell> getAvailableMoves(ChessBoard board, ChessBoardCell fromPos) {
-        List<ChessBoardCell> possibleMoves = new ArrayList<ChessBoardCell>();
+        List<ChessBoardCell> possibleMoves = new ArrayList<>();
         int[][] combinations = {
                 {-1, 1},
                 {0, 1},

@@ -17,16 +17,13 @@ public class Bishop extends Piece{
         this.isPromoted = isPromoted;
     }
 
-    public void setPromoted(boolean isPromoted){
-        this.isPromoted = isPromoted;
-    }
     public boolean isPromoted() {
         return isPromoted;
     }
 
     @Override
     public List<ChessBoardCell> getAvailableMoves(ChessBoard board, ChessBoardCell fromPos) {
-        List<ChessBoardCell> possibleMoves = new ArrayList<ChessBoardCell>();
+        List<ChessBoardCell> possibleMoves = new ArrayList<>();
 
         for(int X = fromPos.getX() - 1, Y = fromPos.getY() + 1; X >= 0 && Y < 8; X--, Y++){
             possibleMoves.add(board.getCell(X, Y));

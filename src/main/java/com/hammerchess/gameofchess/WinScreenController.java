@@ -2,12 +2,10 @@ package com.hammerchess.gameofchess;
 
 import hammerchess.gamelogic.GameState;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
@@ -42,19 +40,13 @@ public class WinScreenController {
 
     private void setDragControls() {
         dragTip.setShowDelay(Duration.ZERO);
-        winContainer.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                xOffset = event.getSceneX();
-                yOffset = event.getSceneY();
-            }
+        winContainer.setOnMousePressed(event -> {
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
         });
-        winContainer.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                winContainer.getScene().getWindow().setX(event.getScreenX() - xOffset);
-                winContainer.getScene().getWindow().setY(event.getScreenY() - yOffset);
-            }
+        winContainer.setOnMouseDragged(event -> {
+            winContainer.getScene().getWindow().setX(event.getScreenX() - xOffset);
+            winContainer.getScene().getWindow().setY(event.getScreenY() - yOffset);
         });
     }
     public void setData(GameState state, boolean winnerIsWhite) {

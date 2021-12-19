@@ -176,9 +176,7 @@ public class GameController {
                 //update tooltip on mouse hover ith corresponding piece
                 updateToolTip(button);
             });
-            button.setOnMouseExited(e -> {
-                button.setStyle(GameTileStyles.defaultWhiteTileStyle);
-            });
+            button.setOnMouseExited(e -> button.setStyle(GameTileStyles.defaultWhiteTileStyle));
         }
         else {
             button.setStyle(GameTileStyles.defaultBlackTileStyle);
@@ -188,9 +186,7 @@ public class GameController {
                 //update tooltip on mouse hover ith corresponding piece
                 updateToolTip(button);
             });
-            button.setOnMouseExited(e -> {
-                button.setStyle(GameTileStyles.defaultBlackTileStyle);
-            });
+            button.setOnMouseExited(e -> button.setStyle(GameTileStyles.defaultBlackTileStyle));
         }
     }
 
@@ -370,7 +366,6 @@ public class GameController {
 
     //reset aspect of the whole chessboard
     private void updateWholeBoard() {
-        boolean isWhite = false;
         for (int y = 7; y >= 0; y--) {
             for (int x = 7; x >= 0; x--) {
                 String buttonText = chessBoard.getCell(x, y).getPieceSymbol();
@@ -393,7 +388,7 @@ public class GameController {
             Stage stage = new Stage();
             stage.initStyle(StageStyle.UNDECORATED);
             stage.setResizable(false);
-            stage.initOwner((Stage)boardView.getScene().getWindow());
+            stage.initOwner(boardView.getScene().getWindow());
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
 

@@ -17,16 +17,13 @@ public class Rook extends Piece {
         this.isPromoted = isPromoted;
     }
 
-    public void setPromoted(boolean isPromoted) {
-        this.isPromoted = isPromoted;
-    }
     public boolean isPromoted() {
         return isPromoted;
     }
 
     @Override
     public List<ChessBoardCell> getAvailableMoves(ChessBoard board, ChessBoardCell fromPos) {
-        List<ChessBoardCell> possibleMoves = new ArrayList<ChessBoardCell>();
+        List<ChessBoardCell> possibleMoves = new ArrayList<>();
         for(int Y = fromPos.getY() + 1; Y < 8; Y++) {
             possibleMoves.add(board.getCell(fromPos.getX(), Y));
             if(!(board.getCell(fromPos.getX(), Y).getPiece() instanceof Null))

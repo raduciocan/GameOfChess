@@ -8,13 +8,6 @@ public class ChessBoardButton extends Button {
     private boolean white;
 
     private boolean selected;
-    ChessBoardButton(int x, int y, boolean white){
-        super();
-        this.x = x;
-        this.y = y;
-        this.white = white;
-        selected = false;
-    }
     ChessBoardButton(String text, int x, int y, boolean white){
         super(text);
         this.x = x;

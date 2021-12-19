@@ -35,10 +35,10 @@ public class ChessPiecesUnicodeAdapter {
     public static Pair<String, PlayerColor> reverseCharCode(Character code) {
         for(Map.Entry<String, Character> entry : pieceCharTable_White.entrySet())
             if(Objects.equals(code, entry.getValue()))
-                return new Pair<String, PlayerColor>(entry.getKey(), PlayerColor.WHITE);
+                return new Pair<>(entry.getKey(), PlayerColor.WHITE);
         for(Map.Entry<String, Character> entry : pieceCharTable_Black.entrySet())
             if(Objects.equals(code, entry.getValue()))
-                return new Pair<String, PlayerColor>(entry.getKey(), PlayerColor.BLACK);
-        return new Pair<String, PlayerColor>("", null);
+                return new Pair<>(entry.getKey(), PlayerColor.BLACK);
+        return new Pair<>("", null);
     }
 }

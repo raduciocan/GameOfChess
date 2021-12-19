@@ -14,7 +14,7 @@ public class Pawn extends Piece {
 
     @Override
     public List<ChessBoardCell> getAvailableMoves(ChessBoard board, ChessBoardCell fromPos) {
-        List<ChessBoardCell> possibleMoves = new ArrayList<ChessBoardCell>();
+        List<ChessBoardCell> possibleMoves = new ArrayList<>();
         //for white
         if(isWhite()) {
             if(board.getCell(fromPos.getX(), fromPos.getY() + 1).getPiece() instanceof Null) {

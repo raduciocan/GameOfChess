@@ -17,16 +17,13 @@ public class Knight extends Piece {
         this.isPromoted = isPromoted;
     }
 
-    public void setPromoted(boolean isPromoted) {
-        this.isPromoted = isPromoted;
-    }
     public boolean isPromoted() {
         return isPromoted;
     }
 
     @Override
     public List<ChessBoardCell> getAvailableMoves(ChessBoard board, ChessBoardCell fromPos) {
-        List<ChessBoardCell> possibleMoves = new ArrayList<ChessBoardCell>();
+        List<ChessBoardCell> possibleMoves = new ArrayList<>();
         int[][] combinations = {
                 {1, 2},
                 {1, -2},

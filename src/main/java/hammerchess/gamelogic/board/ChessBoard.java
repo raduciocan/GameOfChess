@@ -93,15 +93,4 @@ public class ChessBoard {
         }
     }
 
-    public void testPrint(){
-        for (ChessBoardCell[] cellrow : cells)
-        {
-            for (ChessBoardCell cell : cellrow)
-            {
-                System.out.print(cell.getX() + "" + cell.getY() + " ");
-            }
-            System.out.println();
-        }
-    }
-
 }

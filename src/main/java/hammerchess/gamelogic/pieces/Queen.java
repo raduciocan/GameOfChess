@@ -17,9 +17,6 @@ public class Queen extends Piece {
         this.isPromoted = isPromoted;
     }
 
-    public void setPromoted(boolean isPromoted) {
-        this.isPromoted = isPromoted;
-    }
     public boolean isPromoted() {
         return isPromoted;
     }
@@ -27,7 +24,7 @@ public class Queen extends Piece {
 
     @Override
     public List<ChessBoardCell> getAvailableMoves(ChessBoard board, ChessBoardCell fromPos) {
-        List<ChessBoardCell> possibleMoves = new ArrayList<ChessBoardCell>();
+        List<ChessBoardCell> possibleMoves = new ArrayList<>();
 
         //same as rook
         for(int Y = fromPos.getY() + 1; Y < 8; Y++) {

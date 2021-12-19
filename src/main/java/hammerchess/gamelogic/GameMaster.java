@@ -108,7 +108,7 @@ public class GameMaster {
             moveType = MoveType.CASTLING_SMALL;
 
         //if all checks passed, we do the actual move
-        doMove(startPos, endPos, isWhite);
+        doMove(startPos, endPos);
 
         //create move object and store in history
         Move move = new Move(isWhite, startPos, endPos, moveType);
@@ -119,7 +119,7 @@ public class GameMaster {
         return true;
     }
 
-    public void doMove(ChessBoardCell startPos, ChessBoardCell endPos, boolean isWhite) {
+    public void doMove(ChessBoardCell startPos, ChessBoardCell endPos) {
         //we put the moved piece on the new destination cell
         board.getCell(endPos.getX(), endPos.getY()).setPiece(startPos.getPiece());
         //we set the start piece from the initial tile position to Null piece
@@ -148,7 +148,7 @@ public class GameMaster {
         if(!history.canRedo())
             return false;
         Move moveToRedo = history.redo();
-        doMove(moveToRedo.getStartPos(), moveToRedo.getEndPos(), moveToRedo.isWhite());
+        doMove(moveToRedo.getStartPos(), moveToRedo.getEndPos());
 
         if(moveToRedo.getMoveType() == MoveType.CAPTURE)
             if(moveToRedo.isWhite())

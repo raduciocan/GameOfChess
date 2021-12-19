@@ -15,7 +15,7 @@ public class GameView extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("game-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 560, 600);
-        gameController = (GameController)fxmlLoader.getController();
+        gameController = fxmlLoader.getController();
         stage.setTitle("Game of Chess");
         stage.setScene(scene);
         stage.setResizable(false);

@@ -33,7 +33,4 @@ public class ChessBoardCell {
         return ChessPiecesUnicodeAdapter.getPieceChar(piece).toString();
     }
 
-    public void testPrint() {
-        System.out.println("\tx:" + x + "\ty:" + y + "\t"+piece.toString() );
-    }
 }
