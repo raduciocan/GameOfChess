@@ -101,6 +101,8 @@ public class GameMaster {
 
         //check to see if move is of special type
         if(sourcePiece instanceof Pawn && (endY == 0 || endY == 7))
+            //CAUSES PAWN ERROR     !!! IMPORTANT !!!
+            //TO DO: Fix this
             moveType = MoveType.PROMOTION;
         if(sourcePiece instanceof King && ((King) sourcePiece).canSmallCast(board, startPos) && endX == 6 && (endY == 0 || endY == 7))
             moveType = MoveType.CASTLING_SMALL;
