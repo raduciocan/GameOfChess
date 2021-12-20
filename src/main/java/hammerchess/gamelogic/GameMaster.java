@@ -107,12 +107,12 @@ public class GameMaster {
         if(sourcePiece instanceof King && ((King) sourcePiece).canBigCast(board, startPos) && endX == 1 && (endY == 0 || endY == 7))
             moveType = MoveType.CASTLING_SMALL;
 
+        //create move object and store in history ( !!! MUST HAPPEN BEFORE MOVE IS PERFORMED !!! )
+        Move move = new Move(isWhite, startPos, endPos, moveType);
+
+        history.addMove(move);
         //if all checks passed, we do the actual move
         doMove(startPos, endPos);
-
-        //create move object and store in history
-        Move move = new Move(isWhite, startPos, endPos, moveType);
-        history.addMove(move);
 
         //update current player color
         currentPlayer = currentPlayer.switchPlayer();
@@ -131,9 +131,9 @@ public class GameMaster {
             return false;
         Move moveToUndo = history.undo();
         //reset captured piece
-        board.getCell(moveToUndo.getEndPos().getX(), moveToUndo.getEndPos().getY()).setPiece(moveToUndo.getPieceMoved());
+        board.getCell(moveToUndo.getEndPos().getX(), moveToUndo.getEndPos().getY()).setPiece(moveToUndo.getPieceKilled());
         //reset moved piece
-        board.getCell(moveToUndo.getStartPos().getX(), moveToUndo.getStartPos().getY()).setPiece(moveToUndo.getPieceKilled());
+        board.getCell(moveToUndo.getStartPos().getX(), moveToUndo.getStartPos().getY()).setPiece(moveToUndo.getPieceMoved());
 
         if(moveToUndo.getMoveType() == MoveType.CAPTURE)
             if(moveToUndo.isWhite())
