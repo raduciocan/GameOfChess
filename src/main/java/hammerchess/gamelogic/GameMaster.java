@@ -51,7 +51,6 @@ public class GameMaster {
         int endX = selection.getToX();
         int endY = selection.getToY();
         System.out.println("UserSelection -to- Y: " + selection.getToY());
-
         if (!board.isValid(startX, startY) || !board.isValid(endX, endY)) {
             System.out.println("INVALID MOVE ERROR:\tPosition is not on the table");
             return false;
@@ -71,7 +70,6 @@ public class GameMaster {
             System.out.println("INVALID MOVE ERROR:\tPiece moved is not your piece!");
             return false;
         }
-
         if(!(destPiece instanceof Null) && destPiece.isWhite() == currentPlayer.isWhite) {
             System.out.println("INVALID MOVE ERROR:\tCan't eat your own piece");
             return false;

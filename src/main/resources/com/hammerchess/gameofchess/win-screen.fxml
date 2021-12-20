@@ -18,8 +18,14 @@
             <Font name="System Bold" size="42.0" />
          </font>
       </Label>
-      <Button fx:id="exitButton" layoutX="96.0" layoutY="226.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="204.0" text="QUIT" />
-      <Button fx:id="restartButton" layoutX="96.0" layoutY="188.0" mnemonicParsing="false" onAction="#restart" prefHeight="25.0" prefWidth="204.0" text="PLAY AGAIN" />
+      <Button fx:id="exitButton" cancelButton="true" contentDisplay="CENTER" layoutX="96.0" layoutY="240.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="204.0" style="-fx-border-color: red;" text="QUIT" textFill="#d00000">
+         <font>
+            <Font name="Dubai Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="restartButton" defaultButton="true" layoutX="96.0" layoutY="188.0" mnemonicParsing="false" onAction="#restart" prefHeight="25.0" prefWidth="204.0" style="-fx-border-color: #00455c;" text="PLAY AGAIN" textFill="#00455c">
+         <font>
+            <Font name="Dubai Light" size="14.0" />
+         </font></Button>
       <Label fx:id="infoLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="133.0" prefHeight="25.0" prefWidth="400.0" style="-fx-background-color: #e0e0f0;" text="info" textFill="#7e90a3">
          <font>
             <Font name="Calibri" size="15.0" />
